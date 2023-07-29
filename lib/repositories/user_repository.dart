@@ -6,6 +6,7 @@ class UserRepository extends GetConnect {
   final String _baseUrl = 'https://64c12fdbfa35860baea0300e.mockapi.io/api/v1/';
 
   Future<List<User>> fetchUsers(int page, int limit) async {
+    var header = {'Content-Type' : "application/json"};
     final response = await get("${_baseUrl}users?page=$page&limit=$limit");
 
     final data = response.body();
